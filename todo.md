@@ -6,7 +6,7 @@
 - [ ] jamf
 - [ ] pkgbuild
 - [ ] productbuild
-- [x] swift (https://www.zsh.org/mla/workers/2017/msg00183.html)
+- [x] swift
 - [x] xed
 - [ ] xcodebuild
 - [ ] xcrun
@@ -15,3 +15,6 @@
 - [ ] bbresults
 - [ ] bbfind
 - [ ] shellcheck
+- [ ] dsenableroot
+- [ ] sysctl
+- [ ] ioreg
