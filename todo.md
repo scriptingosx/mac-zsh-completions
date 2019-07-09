@@ -1,0 +1,17 @@
+- [x] desktoppr
+- [ ] xattr
+- [ ] dscl
+- [ ] dseditgroup
+- [ ] launchctl
+- [ ] jamf
+- [ ] pkgbuild
+- [ ] productbuild
+- [x] swift (https://www.zsh.org/mla/workers/2017/msg00183.html)
+- [x] xed
+- [ ] xcodebuild
+- [ ] xcrun
+- [x] bbedit
+- [ ] bbediff
+- [ ] bbresults
+- [ ] bbfind
+- [ ] shellcheck
