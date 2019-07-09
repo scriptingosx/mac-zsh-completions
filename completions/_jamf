@@ -1,2 +1,202 @@
 #compdef jamf
 
+
+_jamf() {
+  local -a _jamf_verbs
+  _jamf_verbs=(
+        "about:displays information about the jamf binary"
+        "bind:binds this computer to a directory service"
+        "bless:blesses a System or a NetBoot Server"
+        "changePassword:changes a local user's password"
+        "checkJSSConnection:checks the availability of the JSS"
+        "createAccount:creates a new local account on the system"
+        "createConf:creates a configuration file that the jamf binary uses to find the JSS"
+        "createHooks:creates and configures login/logout hooks"
+        "createSetupDone:ensures the Setup Assistant does not launch immediately on the next boot"
+        "createStartupItem:creates a startup script to contact the JSS"
+        "deleteAccount:deletes a local account from NetInfo or the local dscl database"
+        "deletePrinter:deletes a printer from the system"
+        "deleteSetupDone:causes the Setup Assistant to launch on the next boot"
+        "displayMessage:displays a message to the current user"
+        "enablePermissions:enables permissions on a volume"
+        "enroll:enrolls this computer with the JSS"
+        "fixByHostFiles:fixes the ByHost files"
+        "fixDocks:repairs docks that have question marks after certain OS Updates"
+        "fixPermissions:fixes the permissions on a given target"
+        "flushCaches:flush cache files for the system and/or users"
+        "flushPolicyHistory:flush the policy history on the JSS"
+        "getARDFields:displays the ARD Fields on a volume"
+        "getComputerName:displays the computer name on a volume"
+        "help:displays this message or details on a specific verb"
+        "install:installs a package"
+        "installAllCached:installs all packages that are cached"
+        "listUsers:lists all the users on the computer"
+        "log:log the IP address, action, and username to the JSS"
+        "manage:enforces the entire management framework from the JSS"
+        "mapPrinter:maps a printer"
+        "mcx:apply Managed Preferences"
+        "modifyDock:installs or removes items in all users docks"
+        "mount:mounts a file share"
+        "policy:checks for policies on the JSS"
+        "reboot:reboots the computer"
+        "recon:runs Recon to update the inventory in the JSS"
+        "removeFramework:removes the JAMF Binary and associated files from the computer"
+        "removeSWUSettings:remove settings that point SWU at internal servers"
+        "resetPassword:resets a local user account password"
+        "runScript:runs a script"
+        "runSoftwareUpdate:run Software Update"
+        "setARDFields:sets the ARD Fields"
+        "setComputerName:sets the computer name"
+        "setHomePage:sets the default home page for users"
+        "setOFP:sets the Open Firmware mode and password"
+        "startSSH:starts the ssh server"
+        "uninstall:uninstalls a package"
+        "unmountServer:unmounts a file server"
+        "updatePrebindings:updates the prebindings on a volume"
+        "version:prints the version of this application"
+  )
+
+  local -a _global_options
+  _global_options=(
+        "-displayJSSTraffic[displays the total network traffic between the jamf binary and the JSS]"
+        "-randomDelaySeconds[delays a random amount of time before starting]:maximum delay"
+        "-verbose[shows verbose events]"
+        "-showPID[prints the PID of the process]"
+  )
+  
+  local curcontext="$curcontext" state line expl
+  local -A opt_args
+
+  _arguments -C '*:: :->verbs'
+
+  if (( CURRENT == 1 )); then
+    _describe -t commands "jamf verb" _jamf_verbs
+    return
+  fi
+  
+  case "$words[1]" in
+    about|version)
+      return 0
+      ;;
+    bind)
+      _arguments \
+        "$_global_options[@]" \
+        "-type[one of 'ad', 'od', 'admitmac', 'centrify', or 'likewise']" \
+        "-computerID[the name that the computer will be assigned in the Active Directory domain]:computer ID" \
+        "-domain[the DNS name of the server that hosts the Active Directory domain]:domain" \
+        "-server[the DNS name or IP address of the AD or OD server]:server or ip address" \
+        "-username[the username that you will authenticate to Active Directory with to bind the computer]:user name" \
+        "-password[the password for the user that you will authenticate to Active Directory with to bind the computer]:password" \
+        "-ou[the OU (Organizational Unit) that the computers are stored in on the Active Directory server]:organizational unit" \
+        "-cache[create mobile account at login]" \
+        "-requireConfirmation[require confirmation before creating mobile account]" \
+        "-localHomes[use local home directories]" \
+        "-useUNCPath[use UNC Path from AD for network home location]" \
+        "-mountStyle[specify if the method that the user's home directory is mounted (AFP or SMB)]:afp or smb" \
+        "-defaultShell[specify the user's default shell]:shell path" \
+        "-uid[specify that attribute that stores the UID]: uid attribute" \
+        "-userGID[specify that attribute that stores the User's GID]: usergroup id" \
+        "-gid[specify that attribute that stores the GID]: user gid attribute" \
+        "-preferredServer[specify the DNS name of the server whose  Active Directory domain you want used by default]:preferred server address" \
+        "-multipleDomains[allow users to authenticate from any domain in the forest]" \
+        "-adminGroups[specify groups that are have administrative privileges on the computer]:admin groups" \
+        "-encryptUsingSSL[bind to the OD server using SSL (OD Only)]" \
+        "-performSecureBind[perform a Secure, Two-Way bind to OD (OD Only)]" \
+        "-useForAuthentication[use this OD Server for Authentication (OD Only)]" \
+        "-useForContacts[use this OD Server for Contacts (OD Only)]" \
+        "-cachedLogins[the number of times a user can log in when not connected to a network. '0' disables cached logins. (ADmitMac only)]:number logins" \
+        "-homeFolderType[one of the following: "network" (default), "local", "either" and "mobile" (ADmitMac only)]:home folder type" \
+        "-mountNetworkHomeFolderOnDesktop[mount the user's home directory on their desktop (ADmitMac only)]" \
+        "-placeHomeFoldersInDirectory[Specify a folder where the home folders should be mounted (ADmitMac only)]:home folder dir" \
+        "-cachedCredentials[allow the credentials to be cached (ADmitMac only)]" \
+        "-addManagedDomainUserToAdminGroup[add the 'Managed By' domain user to the local admin group (ADmitMac only)]" \
+        "-usersOU[specify the OU that users should be looked up from (ADmitMac only)]:users OU" \
+        "-groupsOU[specify the OU that groups should be looked up from (ADmitMac Only)]:groups OU" \
+        "-printersOU[specify the OU that printers should be looked up from (ADmitMac Only)]:printers OU" \
+        "-sharedFoldersOU[specify the OU that Shared Folders should be looked up from (ADmitMac Only)]:shared folders OU" \
+        "-mapHomeDirectoryAttributeTo[specify that attribute that stores the Home Directory (ADmitMac only)]:home directory attribute" \
+        "-workstationMode[use without Centrify Administrator Console (Centrify Only)]" \
+        "-joinThisZone[specify the Zone in the Centrify Administrator Console (Centrify Only)]:zone" \
+        "-overwriteExistingRecord[overwrite the existing record (Centrify Only)]" \
+        "-doNotUpdatePAMAndDSConfig[Do not update PAM and Directory Service configuration (Centrify Only)]" \
+        && return 0
+    ;;
+    bless)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the target drive that should be blessed]" \
+        "-setOF[set the drive as the current boot device]" \
+        "-setBoot[synonym for setOF]" \
+        "-bootargs[set the boot-args variable in Open Firmware]" \
+        "-bootfile[set the boot-file variable in Open Firmware]" \
+        "-bootdevice[set the boot-device variable in Open Firmware]" \
+        "-bootdirectory[set the boot-directory for an in-place upgrade]" \
+        && return 0
+    ;;    
+    changePassword)
+      _arguments \
+        "$_global_options[@]" \
+        "-username[the username for which to change the password]:user name" \
+        "-password[the new password for the user]:new password" \
+        "-passhash[the hash of the new password for the user]:password hash" \
+        "-oldPassword[the old/current password of the user]:old password" \
+        "-oldPasshash[the hash of the old/current password of the user]:old password hash" \
+        && return 0
+    ;;    
+    checkJSSConnection)
+      _arguments \
+        "$_global_options[@]" \
+        "-retry[the number of times the connection should be tested]:number of retries" \
+        && return 0
+    ;;
+    createAccount)
+      _arguments \
+        "$_global_options[@]" \
+        "-username[the user's user name ]:user name" \
+        "-realname[the user's real name]:real name" \
+        "-password[the password of the user]:password" \
+        "-passhash[the hashed password of the user]:password hash" \
+        "-home[the location of the user's home directory]: home directory location" \
+        "-hint[the hint displayed to the user]:password hint" \
+        "-shell[the user's default shell]:default shell" \
+        "-picture[the user's picture for the Login window]:user picture" \
+        "-admin[this flag adds the user to the admin group]" \
+        "-hiddenUser[creates an account with a UID under 500 and hides it]" \
+        "-networkUser[creates an account with a UID over 1025]" \
+        "-secureSSH[modifies the group com.apple.ssh_access to restrict access to only this user]" \
+        && return 0
+    ;;    
+    createHooks)
+      _arguments \
+        "$_global_options[@]" \
+        "-url[the JSS URL]:jamf server url" \
+        "-verifySSLCert[valid values are 'always' (default), 'never', 'always_except_during_enrollment']:verify SSL cert value" \
+        "-server[the IP address or DNS name of the server]:ip address or dns" \
+        "-target[the target drive that the conf file should be created on]:target drive" \
+        && return 0
+    ;;    
+    createHooks)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the target drive used to create login/logout hooks]:target drive" \
+        "-policies[Checks for policies on login/logout]" \
+        "-mcx[Enforces MCX settings for the user that is logging in]" \
+        "-log[Creates a log entry in the JSS for the user who is logging in/out of the computer]" \
+        "-hideRestore[Hides the Restore partition if present]" \
+        "-background[Performs actions in the background during login]" \
+        "-displayStatus[Enables the progress display for login/logout]" \
+        && return 0
+    ;;    
+    verb_template)
+      _arguments \
+        "$_global_options[@]" \
+        && return 0
+    ;;    
+    *)
+      _message "unknown jamf verb: $words[1]"
+      _default
+      ;;
+esac
+return 1
+
+}
