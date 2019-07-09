@@ -1,0 +1,16 @@
+#compdef xed
+
+_xed() {
+_arguments -s \
+    - help \
+    "(-h --help)"{-h,--help}"[Show help.]" \
+    - version \
+    "(-v --version)"{-v,--version}"[Print version information.]" \
+        - others \
+    "(-x --launch)"{-x,--launch}"[Just launch Xcode with a new untitled document, don't wait on stdin.]" \
+    "(-c --create)"{-c,--create}"[Create the files if they do not exist.]" \
+    "(-w --wait)"{-w,--wait}"[Wait for file to be closed by Xcode.]" \
+    "(-b --background)"{-b,--background}"[Leave Xcode as a background app after opening.]" \
+    "(-l --line)"{-l,--line}"[Select line <number> after opening file.]:line number" \
+    "*::filename:_files"
+}

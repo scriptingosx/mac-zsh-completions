@@ -1,0 +1,29 @@
+#compdef bbedit
+
+_bbedit() {
+    _arguments -s -S \
+        "--append[append piped data to the active text document]" \
+        "(-b --background)"{-b,--background}"[launch in background]" \
+        "--clean[data will be placed in an untitled, unmodifed document]" \
+        "(-c --create)"{-c,--create}"[create the specified files, unless they exist already, in which case they are opened.]" \
+        "(-e --encoding)"{-e,--encoding}"[set the text encoding]:_values" \
+        "--front-window[opens in the frontmost text window]" \
+        "(-h --help)"{-h,--help}"[show help]" \
+        "(-l --launch)"{-l,--launch}"[launch without opening any files]" \
+        "(-m --language)"{-m,--language}"[specify the source language (e.g. Ruby, Python, etc.)]:_values" \
+        "--maketags[generate a BBEdit compatible ctags 'tags' file for all eligible files in the current directory]" \
+        "--new-window[opens in a new window]" \
+        "--prepend[prepend piped data to the active text document]" \
+        "(-p --print)"{-p,--print}"[print the specified files on your currently selected printer]" \
+        "--project[creates a synthetic project (named with $CWD)]" \
+        "(-t --pipe-title)"{-t,--pipe-title}"[sets the title of the window]:_values" \
+        "(-s --worksheet)"{-s,--worksheet}"[create a new shell worksheet file with the specified name]:_values" \
+        "--scratchpad[appends the data provided on STDIN to the scratchpad]" \
+        "--separate-windows[opens each file into its own text window]" \
+        "(-v --version)"{-v,--version}"[display the current version number of the bbedit command line tool and the BBEdit application]" \
+        "-V, --short-version[display the short-form version number of the bbedit command line tool]" \
+        "--view-top[piped data will be placed into a new document which will have its scrollbar positioned at the top rather than the end]" \
+        "--resume[this switch will cause the application which was frontmost when the bbedit tool was invoked to be made frontmost again once you close the file (use with -w, --wait)]" \
+        "(-w --wait)"{-w,--wait}"[wait until the file is closed in BBEdit]" \
+        "*::filename:_files"
+}

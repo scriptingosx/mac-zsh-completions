@@ -1,0 +1,6 @@
+#compdef desktoppr
+
+_arguments \
+    '::screens:(( main\:"main screen" all\:"all screens (default)" 0\:"screen no 0" 1\:"screen no 1"  2\:"screen no 2"  3\:"screen no 3"  4\:"screen no 4" 5\:"screen no 5" ))' \
+    ':filename:_files'
+
