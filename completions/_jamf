@@ -187,6 +187,37 @@ _jamf() {
         "-displayStatus[Enables the progress display for login/logout]" \
         && return 0
     ;;    
+    createSetupDone)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the drive that the Setup Assistant will be suppressed on.]:target drive" \
+        "-suppressSetupAssistant[the Setup Assistant will not show on first login for any existing user accounts] \
+        && return 0
+    ;;    
+    createStartupItem)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the target drive used to create the startup item]:target drive" \
+        "-log[the startup script logs the IP address to the JSS.]" \
+        "-policies[the startup item will check for policies in the JSS.]" \
+        "-ssh[the startup script will ensure that SSH is running.]" \
+        "-mcx[the startup script enforces System Level MCX settings.]" \
+        && return 0
+    ;;    
+    deleteAccount)
+      _arguments \
+        "$_global_options[@]" \
+        "-username[deletes the user's account]:username" \
+        "-backupTo[the .dmg file of the user's home directory]:path for dmg" \
+        "-deleteHomeDirectory[do not archive the user's home directory]" \
+        && return 0
+    ;;    
+    deletePrinter)
+      _arguments \
+        "$_global_options[@]" \
+        "-cupsName[the CUPS name of the printer]:cups printer name" \
+        && return 0
+    ;;    
     verb_template)
       _arguments \
         "$_global_options[@]" \
@@ -196,7 +227,6 @@ _jamf() {
       _message "unknown jamf verb: $words[1]"
       _default
       ;;
-esac
-return 1
-
+  esac
+  return 1
 }
