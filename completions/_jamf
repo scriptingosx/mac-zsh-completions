@@ -340,6 +340,60 @@ _jamf() {
         "-remove[the item will be removed instead of added]" \
         && return 0
     ;;    
+    mount)
+      _arguments \
+        "$_global_options[@]" \
+        "-url[mounts the specified URL]":mount uri \
+        "-server[the IP address or DNS name of the server]:server address" \
+        "-share[the name of the share you are mounting]:share name" \
+        "-type[the type of file share (afp or smb)]:type" \
+        "-username[user acccount to access the share with]:username" \
+        "-password[password to access the share with]:password" \
+        "-passhash[the hashed password to access the share with]:password hash" \
+        "-port[specify a non standard port for AFP]:port" \
+        "-workgroup[the workgroup or domain for the SMB type]:workgroup" \
+        "-visible[specify that the share should be visible in the Finder]" \
+        && return 0
+    ;;    
+    policy)
+      _arguments \
+        "$_global_options[@]" \
+        "(-event -trigger -action)"{-event,-trigger,-action}"[the event or trigger for the policy]:trigger name" \
+        "-username[the username to check for policies for]" \
+        "-id[the ID of the policy to be executed]" \
+        "-forceNoRecon[prevents computers from submitting inventory update when a policy is configured to update inventory]" \
+        && return 0
+    ;;    
+    reboot)
+      _arguments \
+        "$_global_options[@]" \
+        "-minutes[the minutes until the machine should reboot]:minutes" \
+        "-message[the message to display to any logged in users]:message" \
+        "-startTimerImmediately[start the restart timer immediately without requiring the user to acknowledge the restart message]" \
+        "-background[background this process (don't wait until the reboot to exit)]" \
+        "-immediately[reboot now without warning users]" \
+        && return 0
+    ;;    
+    recon)
+      _arguments \
+        "$_global_options[@]" \
+        "-saveFormTo[saves the contents of the HTTP form to a file]:filepath" \
+        "-assetTag[the asset tag of the computer]:asset tag" \
+        "-endUsername[the user name of the primary user]:primary user shortname" \
+        "-realname[the real name of the primary user]:primary user full name" \
+        "-email[the email address of the primary user]:primary user email address" \
+        "-position[the position (job title) of the primary user]:primary user job title" \
+        "-building[the text representation of a building in the JSS]:building" \
+        "-department[the text representation of a department in the JSS]:deparment" \
+        "-phone[the phone number of the primary user]:primary user phone number" \
+        "-room[the room that the computer is in]:room" \
+        "-ldapServerID[the JSS ID of the LDAP server to which the primary user belongs]:ldap server ID" \
+        "-userID[the user ID of the primary user's account in the LDAP server]:user ID in JSS" \
+        "-sshUsername[a username that is used to connect to the computer over SSH]:ssh account name" \
+        "-sshPassword[a password that is used to connect to the computer over SSH]:ssh password" \
+        "-sshPasshash[a hashed copy of a password that is used to connect to the computer over SSH]:ssh password hash" \
+        && return 0
+    ;;    
     verb_template)
       _arguments \
         "$_global_options[@]" \
