@@ -28,7 +28,7 @@ fpath=( ~/Projects/mac-zsh-completion $fpath )
 
 - remember to regularly re-download or `git pull` for new completions and updates
 
-### Install via oh-my-zsh
+### Install via [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/)
 
 ```zsh
 git clone git@github.com:scriptingosx/mac-zsh-completions.git "$ZSH_CUSTOM/plugins/mac-zsh-completions"
@@ -39,4 +39,4 @@ git clone git@github.com:scriptingosx/mac-zsh-completions.git "$ZSH_CUSTOM/plugi
 
 ## Comments and Discussion
 
-Aside from issues and pull request, I suggest the `#zsh` channel on the (MacAdmins Slack)[http://macadmins.org] for discussion.
+Aside from issues and pull request, I suggest the `#zsh` channel on the [MacAdmins Slack](http://macadmins.org) for discussion.
