@@ -4,7 +4,7 @@ Some zsh completion files for macOS specific commands and third party tools.
 
 Pull requests and contributions are welcome!
 
-## setup and installation
+## Setup and Installation
 
 To use mac-zsh-completions on your Mac, follow these steps:
 
@@ -27,6 +27,15 @@ fpath=( ~/Projects/mac-zsh-completion $fpath )
 ```
 
 - remember to regularly re-download or `git pull` for new completions and updates
+
+### Install via oh-my-zsh
+
+```zsh
+git clone git@github.com:scriptingosx/mac-zsh-completions.git "$ZSH_CUSTOM/plugins/mac-zsh-completions"
+```
+
+- Add to your `~/.zshrc` plugins array `plugins=(... mac-zsh-completions)`
+- Run `source ~/.zshrc` or restart your shell to activate
 
 ## Comments and Discussion
 
