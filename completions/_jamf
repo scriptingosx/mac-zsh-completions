@@ -75,7 +75,7 @@ _jamf() {
   fi
   
   case "$words[1]" in
-    about|version)
+    about|version|enablePermissons)
       return 0
       ;;
     bind)
@@ -191,7 +191,7 @@ _jamf() {
       _arguments \
         "$_global_options[@]" \
         "-target[the drive that the Setup Assistant will be suppressed on.]:target drive" \
-        "-suppressSetupAssistant[the Setup Assistant will not show on first login for any existing user accounts] \
+        "-suppressSetupAssistant[the Setup Assistant will not show on first login for any existing user accounts]" \
         && return 0
     ;;    
     createStartupItem)
@@ -216,6 +216,128 @@ _jamf() {
       _arguments \
         "$_global_options[@]" \
         "-cupsName[the CUPS name of the printer]:cups printer name" \
+        && return 0
+    ;;    
+    deleteSetupDone)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the drive that the setup file will be delete from]:volume path" \
+        && return 0
+    ;;    
+    displayMessage)
+      _arguments \
+        "$_global_options[@]" \
+        "-message[the message to be displayed]:message" \
+        && return 0
+    ;;    
+    enroll)
+      _arguments \
+        "$_global_options[@]" \
+        "-prompt[prompt for JSS and SSH credentials]" \
+        "-invitation[uses an invitation ID for credentials instead of a user name and password]" \
+        "-noRecon[stops enroll from acquiring inventory]" \
+        "-noManage[stops enroll from enforcing the management framework]" \
+        "-noPolicy[stops enroll from checking for enrollment policies]" \
+        && return 0
+    ;;    
+    fixByHostFiles|fixDocks|fixPermissions)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the root of the drive or folder that will be updated]:volume" \
+        "-duplicate[]" \
+        && return 0
+    ;;    
+    flushCaches)
+      _arguments \
+        "$_global_options[@]" \
+        "-flushSystem[flush all System Caches]" \
+        "-flushUsers[flush all caches in the user's home directories]" \
+        && return 0
+    ;;    
+    flushPolicyHistory)
+      _arguments \
+        "$_global_options[@]" \
+        && return 0
+    ;;    
+    getARDFields)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the drive that the ARD fields will be display from]:path to volume" \
+        && return 0
+    ;;    
+    getComputerName)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the drive that the computer name will be displayed from]:path to volume" \
+        && return 0
+    ;;    
+    help)
+      _describe -t commands "jamf verb" _jamf_verbs \
+        && return 0
+    ;;
+    install)
+      _arguments \
+        "$_global_options[@]" \
+        "-package[the filename of the package that will be installed]:package file name" \
+        "-path[the path to the package, not including the name of the package]:path to package" \
+        "-target[the drive that the package will be installed to]:target volume" \
+        "-fut[enable the Fill User Templates option]" \
+        "-feu[enable the Fill Existing Users option]" \
+        "-showProgress[displays the progress of the HTTP download and the progress of the installation process]" \
+        && return 0
+    ;;    
+    installAllCached)
+      _arguments \
+        "$_global_options[@]" \
+        && return 0
+    ;;    
+    listUsers)
+      _arguments \
+        "$_global_options[@]" \
+        "-showAll[shows system users with unique ID numbers less than 500]" \
+        "-sizes[calculates the size of a user’s home directory]" \
+        && return 0
+    ;;    
+    log)
+      _arguments \
+        "$_global_options[@]" \
+        "-action[the action to log (reboot, login or logout)]:action" \
+        "-username[the name of the user logging in or out]:username" \
+        && return 0
+    ;;    
+    manage)
+      _arguments \
+        "$_global_options[@]" \
+        && return 0
+    ;;    
+    mapPrinter)
+      _arguments \
+        "$_global_options[@]" \
+        "-id[the JSS ID of the printer]:jss id" \
+        "-cupsName[a CUPS compliant name]:printer name" \
+        "-location[the Location field of the printer]:printer location" \
+        "-displayName[the display name]:display name" \
+        "-deviceURI[the DeviceURI for the printer]:printer URI" \
+        "-path[the path to the PPDs folder]:path to PPDs folder" \
+        "-ppd[the full path to the PPD to use for the printer]:path to PPD" \
+        "-default[make this printer the default printer for all users on the system]" \
+        "-shared[make this printer the shared printer]" \
+        && return 0
+    ;;    
+    mcx)
+      _arguments \
+        "$_global_options[@]" \
+        "-username[the username of the account that Managed Preferences are being applied to]:username" \
+        && return 0
+    ;;    
+    modifyDock)
+      _arguments \
+        "$_global_options[@]" \
+        "-file[the file that contains the formatted dock items]:path to dock item file" \
+        "-id[the dock_item_id of the dock item on the JSS]:dock id" \
+        "-leaveRunning[the Dock process will not be restarted]" \
+        "-beginning[the item will be placed at the beginning (left side) of the Dock]" \
+        "-remove[the item will be removed instead of added]" \
         && return 0
     ;;    
     verb_template)
