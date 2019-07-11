@@ -3,7 +3,7 @@
 - [ ] dscl
 - [ ] dseditgroup
 - [ ] launchctl
-- [ ] jamf
+- [x] jamf
 - [ ] pkgbuild
 - [ ] productbuild
 - [x] swift
@@ -18,3 +18,6 @@
 - [ ] dsenableroot
 - [ ] sysctl
 - [ ] ioreg
+- [ ] profiles
+- [ ] plutil
+- [ ] PlistBuddy

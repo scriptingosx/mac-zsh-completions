@@ -12,7 +12,7 @@ To use mac-zsh-completions on your Mac, follow these steps:
 - in your `.zshrc` (or other zsh configuration file) add the full path to the `mac-zsh-completions/completions` directory to the `fpath`, e.g.
 
 ```zsh
-fpath=( ~/Projects/mac-zsh-completion $fpath )
+fpath=( ~/Projects/mac-zsh-completions/completions $fpath )
 ```
 
 - the command to load `compinit` should come _after_ modifying the `fpath` in your `.zshrc`
