@@ -394,9 +394,110 @@ _jamf() {
         "-sshPasshash[a hashed copy of a password that is used to connect to the computer over SSH]:ssh password hash" \
         && return 0
     ;;    
-    verb_template)
+    removeFramework)
       _arguments \
         "$_global_options[@]" \
+        && return 0
+    ;;    
+    removeSWUSettings)
+      _arguments \
+        "$_global_options[@]" \
+        && return 0
+    ;;    
+    resetPassword)
+      _arguments \
+        "$_global_options[@]" \
+        "-username[the username for which to reset the password]:username" \
+        "-password[the new password for the user]:new password" \
+        "-passhash[the hash of the new password for the user]: new passhash" \
+        && return 0
+    ;;    
+    runScript)
+      _arguments \
+        "$_global_options[@]" \
+        "-script[the file name of the script to run]:file name" \
+        "-path[the path to the script]:path to script" \
+        "-computerName[the name of the computer to be passed to the script]:computer name" \
+        "-target[the target drive to be passed to the script]:target drive" \
+        "-username[the username to be passed to the script]:user name" \
+        "-p"{1..8}"[the parameters to be passed to the script]:parameter" \
+        && return 0
+    ;;    
+    runSoftwareUpdate)
+      _arguments \
+        "$_global_options[@]" \
+        "-server[the server which the Software Update service should look to]:software update server address" \
+        "-setPrefOnly[point SWU to the server, but do not run]" \
+        "-fromApple[run Software Update from Apple, not a hosted server]" \
+        && return 0
+    ;;    
+    setARDFields)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the target drive to set the fields on]:target volume" \
+        "-"{1..4}"[the field for Apple Remote Desktop]" \
+        && return 0
+    ;;    
+    setComputerName)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[The target drive to set the name on]:target volume" \
+        "-name[the new name for the computer]:new computer name" \
+        "-useMACAddress[generate the name using the MAC Address]" \
+        "-useSerialNumber[generate the name using the Serial Number]" \
+        "-prefix[add this prefix to the MAC Address or Serial Number]:prefix" \
+        "-suffix[add this suffix to the MAC Address or Serial Number]:suffix" \
+        "-fromFile[The path to a CSV file containing the computer's MAC Address or Serial Number followed by the desired name]:path to csv file" \
+        && return 0
+    ;;    
+    setHomePage)
+      _arguments \
+        "$_global_options[@]" \
+        "-homepage[the URL for the homepage]:homepage url" \
+        "-feu[set the homepage for existing users]" \
+        "-fut[set the homepage in the User Templates]" \
+        "-username[set the homepage only for this user]:username" \
+        "-ffmstone[specify the milestone version for FireFox]:firefox milestone" \
+        "-mozmstone[specify the milestone version for Mozilla (Netscape)]:mozilla milestone" \
+        "-removeDownloadLocation[remove the default download location]" \
+        "-skipIE[do not set the homepage for Internet Explorer]" \
+        "-skipFirefox[do not set the homepage for Firefox]" \
+        "-skipMozilla[do not set the homepage for Mozilla based browsers (Netscape)]" \
+        "-skipSafari[do not set the homepage for Safari]" \
+        && return 0
+    ;;    
+    setOFP)
+      _arguments \
+        "$_global_options[@]" \
+        "-mode[the security-mode to set in Open Firmware (none, command, full)]:security mode" \
+        "-passhash[the hash to set the security-password to in Open Firmware]:password hash" \
+        "-password[the password to set the security-password to in Open Firmware]:password" \
+        && return 0
+    ;;    
+    startSSH)
+      _arguments \
+        "$_global_options[@]" \
+        && return 0
+    ;;    
+    uninstall)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the target drive to uninstall the package from]:target volume" \
+        "-id[the ID of the package in the JSS]:jss package id" \
+        "-fut[remove any files from the package that are in the User Templates]" \
+        "-feu[remove any files from the package that are installed in a user's home directory]" \
+        && return 0
+    ;;    
+    unmountServer)
+      _arguments \
+        "$_global_options[@]" \
+        "-mountPoint[the path to the share you want to unmount]:path to mount" \
+        && return 0
+    ;;    
+    updatePrebindings)
+      _arguments \
+        "$_global_options[@]" \
+        "-target[the path to the location you want to update prebindings for]:target volume" \
         && return 0
     ;;    
     *)
