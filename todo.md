@@ -2,6 +2,7 @@
 - [ ] xattr
 - [ ] dscl
 - [ ] dseditgroup
+- [ ] dsenableroot
 - [ ] launchctl
 - [x] jamf
 - [ ] pkgbuild
@@ -11,7 +12,7 @@
 - [ ] xcodebuild
 - [ ] xcrun
 - [x] bbedit
-- [ ] bbediff
+- [ ] bbdiff
 - [ ] bbresults
 - [ ] bbfind
 - [ ] shellcheck
@@ -21,3 +22,7 @@
 - [ ] profiles
 - [ ] plutil
 - [ ] PlistBuddy
+- [ ] installer
+- [ ] diskutil
+- [ ] dsimport
+- [ ] log
