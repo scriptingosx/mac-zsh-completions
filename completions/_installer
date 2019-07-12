@@ -1,0 +1,25 @@
+#compdef installer
+
+_installer() {
+  _arguments \
+    "-dominfo[display domains that can be installed into]" \
+    "-volinfo[display volumes that can be installed onto]" \
+    "-pkginfo[display package that will be installed (for metapackages, shows contents)]" \
+    "-query[display information about package metadata]:query flag:(RestartAction)" \
+    "-allowUntrusted[allow installing a package signed by an untrusted (or expired) certificate]" \
+    "-dumplog[write log information to standard error (in addition to the usual syslog)]" \
+    "-help[display help information]" \
+    "(-verboseR)-verbose[display detailed information]" \
+    "(-verbose)-verboseR[display detailed information with simplified progress output]" \
+    "-vers[display tool version]" \
+    "-config[display command line parameters in XML plist format]" \
+    "-plist[display -dominfo, -volinfo, or -pkginfo in XML plist format (ignored when performing installation)]" \
+    "-file[configuration file supplying parameters in XML plist format]:path to plist file" \
+    "-lang[sets the default language Mac OS X will use after installation]:iso language code" \
+    "-listiso[lists the ISO language codes that are recognized]" \
+    "(-showChoicesAfterApplyingChangesXML -applyChoiceChangesXML)-showChoicesXML[output XML data describing the choices and their properties and state]" \
+    "(-showChoicesXML -applyChoiceChangesXML)-showChoicesAfterApplyingChangesXML[apply changes specified in the file to the choices in the package and output the resulting XML data]:path to choice changes xml file:_files" \
+    "(-showChoicesXML -showChoicesAfterApplyingChangesXML)-applyChoiceChangesXML[apply changes specified in the file to the package and proceeds with installation]:path to choice changes xml file:_files" \
+    "(-target -tgt)"{-target,-tgt}"[path to target volume or domain]:path to target volume or domain:_files -/" \
+    "(-package -pkg)"{-package,-pkg}"[path to package file]:path to package file:_files -g *.{pkg,mpkg}"
+}
