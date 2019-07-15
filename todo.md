@@ -22,7 +22,10 @@
 - [ ] profiles
 - [ ] plutil
 - [ ] PlistBuddy
-- [ ] installer
+- [x] installer
 - [ ] diskutil
 - [ ] dsimport
 - [ ] log
+- [ ] sysadminctl
+- [ ] autopkg
+- [ ] startosinstall
