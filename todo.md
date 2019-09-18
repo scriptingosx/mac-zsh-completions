@@ -29,3 +29,6 @@
 - [ ] sysadminctl
 - [ ] autopkg
 - [ ] startosinstall
+- [ ] tccutil
+- [ ] tmutil
+- [ ] quickpkg
