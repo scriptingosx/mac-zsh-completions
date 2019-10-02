@@ -6,7 +6,7 @@ _see() {
     "(-e --encoding)"{-e,--encoding}"[specify the internet name of an encoding to open the specified file(s) using that encoding]" \
     "(-g --goto)"{-g,--goto}"[set the selection to the specified line, column and length]" \
     "(-h --help)"{-h,--help}"[display usage information and exit]" \
-    "(-j --job-description)"{-j, --job-description}"[specify a string describing the context in which the command is used]" \
+    "(-j --job-description)"{-j,--job-description}"[specify a string describing the context in which the command is used]" \
     "(-l --launch)"{-l,--launch}"[launch SubEthaEdit or activate it, if it's already running]" \
     "(-m --mode)"{-m,--mode}"[specify the identifier of a mode to open the specified file(s) using that mode]" \
     "(-o --open-in)"{-o,--open-in}"[specify in which container the files should be openend; tabs, windows or new-window]" \
