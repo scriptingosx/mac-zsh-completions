@@ -5,10 +5,11 @@ _plutil() {
 	"-help[Show the usage information for the command and exit]" \
 	"-p[Print the property list in human-readable fashion]" \
 	"-lint[Check the named property list files for syntax errors]" \
-	"-convert[Convert the named file to the indicated format (xml1, binary1, json) and write back to the file system]" \
+	"-convert[Convert the named file to the indicated format (xml1, binary1, json) and write back to the file system]:format:(xml1 binary1 json)" \
 	"--[Specifies that all further arguments are file names]" \
 	"-s[Don't print anything on success]" \
 	"-r[For JSON, add whitespace and indention to make the output more human-readable]" \
 	"-o[Specify an alternate path name for the result of the -convert operation]:o" \
-	"-e[Specify an alternate extension for converted files, and the output file names are otherwise the same]:e flag:(extension)"
+	"-e[Specify an alternate extension for converted files, and the output file names are otherwise the same]:extension" \
+	"*::filename:_files"
 }
