@@ -5,8 +5,8 @@ _xcrun() {
     "(-h --help)"{-h,--help}"[show this help message and exit]" \
     "--version[show the xcrun version]" \
     "(-v --verbose)"{-v,--verbose}"[show verbose logging output]" \
-    "--sdk[find the tool for the given SDK name]" \
-    "--toolchain[find the tool for the given toolchain]" \
+    "--sdk[find the tool for the given SDK name]:sdk" \
+    "--toolchain[find the tool for the given toolchain]:toolchain" \
     "(-l --log)"{-l,--log}"[show commands to be executed (with --run)]" \
     "(-f --find)"{-f,--find}"[only find and print the tool path]" \
     "(-r --run)"{-r,--run}"[find and execute the tool (the default behavior)]" \
