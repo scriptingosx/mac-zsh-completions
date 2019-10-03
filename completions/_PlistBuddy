@@ -1,0 +1,8 @@
+#compdef PlistBuddy
+
+_PlistBuddy() {
+	_arguments \
+	    "-c[\"<command>\" execute command, otherwise run in interactive mode]" \
+		"-x[output will be in the form of an xml plist where appropriate]" \
+		"-h[print the complete help info, with command guide]"
+}
