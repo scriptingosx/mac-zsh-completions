@@ -33,6 +33,8 @@
 - [ ] tmutil
 - [ ] quickpkg
 - [ ] diskutil
+- [ ] fdesetup
+
 
 
 *zsh 5.3 (High Sierra/Mojave)*
