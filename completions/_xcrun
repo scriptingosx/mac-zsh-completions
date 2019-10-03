@@ -1,0 +1,20 @@
+#compdef xcrun
+
+_xcrun() {
+  _arguments \
+    "(-h --help)"{-h,--help}"[show this help message and exit]" \
+    "--version[show the xcrun version]" \
+    "(-v --verbose)"{-v,--verbose}"[show verbose logging output]" \
+    "--sdk[find the tool for the given SDK name]:sdk" \
+    "--toolchain[find the tool for the given toolchain]:toolchain" \
+    "(-l --log)"{-l,--log}"[show commands to be executed (with --run)]" \
+    "(-f --find)"{-f,--find}"[only find and print the tool path]" \
+    "(-r --run)"{-r,--run}"[find and execute the tool (the default behavior)]" \
+    "(-n --no-cache)"{-n,--no-cache}"[do not use the lookup cache]" \
+    "(-k --kill-cache)"{-k,--kill-cache}"[invalidate all existing cache entries]" \
+    "--show-sdk-path[show selected SDK install path]" \
+    "--show-sdk-version[show selected SDK version]" \
+    "--show-sdk-build-version[show selected SDK build version]" \
+    "--show-sdk-platform-path[show selected SDK platform path]" \
+    "--show-sdk-platform-version[show selected SDK platform version]"
+}

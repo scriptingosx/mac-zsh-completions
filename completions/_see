@@ -1,0 +1,20 @@
+#compdef see
+
+_see() {
+  _arguments -s -S \
+    "(-b --background)"{-b,--background}"[keep SubEthaEdit in the background or launch it in the background]" \
+    "(-e --encoding)"{-e,--encoding}"[specify the internet name of an encoding to open the specified file(s) using that encoding]":encoding \
+    "(-g --goto)"{-g,--goto}"[set the selection to the specified line, column and length]:line number" \
+    "(-h --help)"{-h,--help}"[display usage information and exit]" \
+    "(-j --job-description)"{-j,--job-description}"[specify a string describing the context in which the command is used]":jobdescription \
+    "(-l --launch)"{-l,--launch}"[launch SubEthaEdit or activate it, if it's already running]" \
+    "(-m --mode)"{-m,--mode}"[specify the identifier of a mode to open the specified file(s) using that mode]":identifier \
+    "(-o --open-in)"{-o,--open-in}"[specify in which container the files should be openend; tabs, windows or new-window]:target:(tabs windows new-window)" \
+    "(-p --print)"{-p,--print}"[print the specified file(s) on the default printer]" \
+    "(-r --resume)"{-r,--resume}"[bring the application which was in the foreground when the see command was invoked to the foreground]" \
+    "(-d --pipe-dirty)"{-d,--pipe-dirty}"[make the document containing the text from stdin dirty so it shows a dialog on close]" \
+    "(-t --pipe-title)"{-t,--pipe-title}"[specify a string which should be used as the window title for the document]:window title" \
+    "(-v --version)"{-v,--version}"[display version information and exit]" \
+    "(-w --wait)"{-w,--wait}"[wait until all specified files have been closed in SubEthaEdit]" \
+    "*::filename:_files"
+}
