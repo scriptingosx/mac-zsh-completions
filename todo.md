@@ -10,7 +10,7 @@
 - [x] swift
 - [x] xed
 - [ ] xcodebuild
-- [-] xcrun
+- [ ] xcrun (started)
 - [x] bbedit
 - [ ] bbdiff
 - [ ] bbresults
