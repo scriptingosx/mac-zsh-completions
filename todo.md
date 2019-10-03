@@ -10,7 +10,7 @@
 - [x] swift
 - [x] xed
 - [ ] xcodebuild
-- [ ] xcrun
+- [-] xcrun
 - [x] bbedit
 - [ ] bbdiff
 - [ ] bbresults
@@ -20,8 +20,8 @@
 - [ ] sysctl
 - [ ] ioreg
 - [ ] profiles
-- [ ] plutil
-- [ ] PlistBuddy
+- [x] plutil
+- [x] PlistBuddy
 - [x] installer
 - [ ] diskutil
 - [ ] dsimport
@@ -34,6 +34,7 @@
 - [ ] quickpkg
 - [ ] diskutil
 - [ ] fdesetup
+- [x] see
 
 
 
