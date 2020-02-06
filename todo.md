@@ -35,6 +35,8 @@
 - [ ] diskutil
 - [ ] fdesetup
 - [x] see
+- [ ] app-sso
+
 
 
 
@@ -68,7 +70,7 @@
 - sc_usage
 - scselect
 - scutil
-- softwareupdate
+- softwareupdate (enhanced for Catalina)
 - sw_vers
 - swift
 - system_profiler
