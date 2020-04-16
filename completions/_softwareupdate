@@ -44,6 +44,7 @@ _softwareupdate() {
     '--ignored[show or manage ignored updates list (per-user)]:*:: :->ignored' \
     '--reset-ignored[clear all ignored updates]' \
     '--fetch-full-installer[install the latest macOS Installer]:*: :->fetch' \
+    '--history[show the install history]:*: :->history' \
     '--schedule[scheduler preferences (per-user)]:automatic checking:(on off)' \
     {-h,--help}'[print command usage]:*:' && return 0
 
@@ -77,6 +78,11 @@ _softwareupdate() {
       _arguments \
         '--full-installer-version[the version of macOS to install]:installer version:(10.13.6 10.14.6 10.15.3)' \
         && return 0
+      ;;
+    history)
+      _arguments \
+        '--all[include all processes in history (including App installs)]' \
+      && return 0
       ;;
   esac
   return 1
