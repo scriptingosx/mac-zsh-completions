@@ -1,0 +1,6 @@
+#compdef project
+
+_project() {
+  _arguments \
+    "*:project folder name:_files -W $PROJECTS_DIR -S ''"
+}
