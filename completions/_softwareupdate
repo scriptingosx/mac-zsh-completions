@@ -15,7 +15,7 @@ _softwareupdate_update_name() {
   local name line
   if [[ -z "$_softwareupdate_updates" ]]; then
     _softwareupdate_updates=()
-    for line in ${(f)"$(_call_program pkgs softwareupdate --list)"}; do
+    for line in ${(f)"$(_call_program pkgs softwareupdate --list --no-scan)"}; do
       if [[ $line == '   '* ]]; then
         name="${line#   ? }"
       elif [[ -n "$name" ]]; then
@@ -30,6 +30,23 @@ _softwareupdate_update_name() {
   return 1
 }
 
+_softwareupdate_fullinstaller_version() {
+    local name line
+    if [[ -z "$_softwareupdate_installer_versions" ]]; then
+        _softwareupdate_installer_versions=()
+        for line in ${(f)"$(_call_program pkgs softwareupdate --list-full-installers --no-scan)"}; do
+            if [[ $line == "* "* ]]; then
+                name=${${line#*Version: }%, Size*}
+                _softwareupdate_installer_versions+=("$name")
+            fi
+        done
+    fi
+    if (( ${#_softwareupdate_installer_versions} > 0 )); then
+    _describe -t pkgs "installer version" _softwareupdate_installer_versions && return 0
+    fi
+    return 1
+}
+
 _softwareupdate() {
   local context state line expl
   typeset -A opt_args
@@ -37,12 +54,11 @@ _softwareupdate() {
   _arguments -R \
     '(-h --help -l --list)-q[quiet mode]' \
     {-l,--list}'[list all available updates]:*:' \
-    {-d,--download}'[download to directory set in InternetConfig]:*:' \
+    {-d,--download}'[Download only]:*:' \
     {-e,--cancel-download}'[cancel a download]' \
     '--background[trigger a background scan and update operation]' \
     {-i,--install}'[install (requires root)]:*: :->install' \
-    '--ignored[show or manage ignored updates list (per-user)]:*:: :->ignored' \
-    '--reset-ignored[clear all ignored updates]' \
+    '--list-full-installers[List the available macOS Installers]' \
     '--fetch-full-installer[install the latest macOS Installer]:*: :->fetch' \
     '--history[show the install history]:*: :->history' \
     '--schedule[scheduler preferences (per-user)]:automatic checking:(on off)' \
@@ -56,27 +72,9 @@ _softwareupdate() {
         '(* -R --restart)'{-R,--restart}'[automatically restart (or shut down) if required to complete installation]' \
         '*:update name:_softwareupdate_update_name' && return 0
       ;;
-    ignored)
-      local -a ignored_subcmd
-      ignored_subcmd=(add remove)
-
-      if (( CURRENT == 1 )); then
-        _describe -t commands "subcommands" ignored_subcmd && return 0
-      fi
-      case $words[1] in
-        add)
-          _softwareupdate_update_name && return 0
-          ;;
-        remove)
-          _arguments \
-            '(* -a --all)'{-a,--all}'[all available active updates]' \
-            '*:update name:_softwareupdate_ignored_update_name' && return 0
-          ;;
-      esac
-      ;;
     fetch)
       _arguments \
-        '--full-installer-version[the version of macOS to install]:installer version:(10.13.6 10.14.6 10.15.3)' \
+        '--full-installer-version:installer version:_softwareupdate_fullinstaller_version' \
         && return 0
       ;;
     history)
