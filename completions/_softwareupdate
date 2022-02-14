@@ -60,6 +60,7 @@ _softwareupdate() {
     {-i,--install}'[install (requires root)]:*: :->install' \
     '--list-full-installers[List the available macOS Installers]' \
     '--fetch-full-installer[install the latest macOS Installer]:*: :->fetch' \
+    '--install-rosetta[Install Rosetta 2]' \
     '--history[show the install history]:*: :->history' \
     '--schedule[scheduler preferences (per-user)]:automatic checking:(on off)' \
     {-h,--help}'[print command usage]:*:' && return 0
@@ -70,6 +71,10 @@ _softwareupdate() {
         '(* -a --all)'{-a,--all}'[all available active updates]' \
         '(* -r --req)'{-r,--req}'[all required active updates]' \
         '(* -R --restart)'{-R,--restart}'[automatically restart (or shut down) if required to complete installation]' \
+        '--os-only[Only OS updates]' \
+        '--safari-only[Only Safari updates]' \
+        '--stdinpass[Password to authenticate as an owner. Apple Silicon only.]' \
+        '--user[Local username to authenticate as an owner. Apple Silicon only.]' \
         '*:update name:_softwareupdate_update_name' && return 0
       ;;
     fetch)
