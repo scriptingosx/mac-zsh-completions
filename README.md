@@ -31,7 +31,7 @@ fpath=( ~/Projects/mac-zsh-completions/completions $fpath )
 ### Install via [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/)
 
 ```zsh
-git clone git@github.com:scriptingosx/mac-zsh-completions.git "$ZSH_CUSTOM/plugins/mac-zsh-completions"
+git clone https://github.com/scriptingosx/mac-zsh-completions.git "$ZSH_CUSTOM/plugins/mac-zsh-completions"
 ```
 
 - Add to your `~/.zshrc` plugins array `plugins=(... mac-zsh-completions)`
