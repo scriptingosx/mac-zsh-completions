@@ -17,5 +17,9 @@ function _quickpkg () {
     "--sign[sign package with identity]"  \
     "--keychain[use keychain]" \
     "--cert[certificate name]" \
+    "(-v -vv -vvv)--verbosity[amount of logging]" \
+    "(--verbosity -vv -vvv)-v[small amount of logging]" \
+    "(--v --verbosity -vvv)-vv[medium amount of logging]" \
+    "(-vv -vv --verbosity)-vvv[chatty amount of logging]" \
     "*::filename:_files"
 }
