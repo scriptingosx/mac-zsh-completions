@@ -4,8 +4,6 @@ Some zsh completion files for macOS specific commands and third party tools.
 
 Pull requests and contributions are welcome!
 
-We will see.
-
 ## Setup and Installation
 
 To use mac-zsh-completions on your Mac, follow these steps:
