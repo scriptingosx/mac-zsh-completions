@@ -1,7 +1,6 @@
 #compdef quickpkg
 
 function _quickpkg () {
-
     _arguments  -S \
     "--help[Show help]"  \
     "--version[Show version]"  \
@@ -11,10 +10,12 @@ function _quickpkg () {
     "--install-location[install location]:folder:_files"  \
     "--ownership[ownership]:::_values 'passed to pkgbuild' 'recommended' 'preserve' 'preserve-other'"  \
     "--output[output folder]::folder:_files"  \
-    "--clean[remove temporary files (default)]"  \
-    "--no-clean[do not remove temporary files]"  \
-    "--relocatable[sets BundleIsRelocatable to true]"  \
+    "(--no-clean)--clean[remove temporary files (default)]"  \
+    "(--clean)--no-clean[do not remove temporary files]"  \
+    "(--no-relocatable)--relocatable[sets BundleIsRelocatable to true]"  \
+    "(--relocatable)--no-relocatable[sets BundleIsRelocatable to false]"  \
     "--sign[sign package with identity]"  \
     "--keychain[use keychain]" \
     "--cert[certificate name]" \
+    "*::filename:_files"
 }
