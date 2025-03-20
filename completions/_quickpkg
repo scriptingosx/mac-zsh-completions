@@ -1,0 +1,20 @@
+#compdef quickpkg
+
+function _quickpkg () {
+
+    _arguments  -S \
+    "--help[Show help]"  \
+    "--version[Show version]"  \
+    "--scripts[folder of scripts]::folder:_files"  \
+    "--preinstall[preinstall script]::file:_files" \
+    "--postinstall[postinstall script]::file:_files"  \
+    "--install-location[install location]:folder:_files"  \
+    "--ownership[ownership]:::_values 'passed to pkgbuild' 'recommended' 'preserve' 'preserve-other'"  \
+    "--output[output folder]::folder:_files"  \
+    "--clean[remove temporary files (default)]"  \
+    "--no-clean[do not remove temporary files]"  \
+    "--relocatable[sets BundleIsRelocatable to true]"  \
+    "--sign[sign package with identity]"  \
+    "--keychain[use keychain]" \
+    "--cert[certificate name]" \
+}
