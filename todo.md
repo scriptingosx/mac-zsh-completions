@@ -3,7 +3,6 @@
 - [ ] dscl
 - [ ] dseditgroup
 - [ ] dsenableroot
-- [ ] launchctl
 - [x] jamf
 - [ ] pkgbuild
 - [ ] productbuild
@@ -31,14 +30,17 @@
 - [ ] startosinstall
 - [ ] createinstallmedia
 - [ ] tccutil
-- [ ] tmutil
 - [ ] quickpkg
 - [ ] diskutil
 - [ ] fdesetup
 - [x] see
 - [ ] app-sso
 
-
+*available at https://github.com/nilsonholger/osx-zsh-completions*
+- launchctl
+- systemsetup
+- tmutil
+- xattr
 
 
 *zsh 5.3 (High Sierra/Mojave)*
