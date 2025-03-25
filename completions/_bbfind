@@ -1,0 +1,23 @@
+#compdef bbfind
+
+_bbfind(){
+    _arguments -S \
+        "(-V --short-version)""{-V --shortversion}""[show the short version]" \
+        "(-v --version)""{-v,--version}""[display the version number]" \
+        "-n, --case-sensitive[case sensitive comparison]" \
+        "-g, --grep[use grep patterns]" \
+        "-w, --match-word[match whole words]" \
+        "-x, --extract[extract matching lines]" \
+        "-r[replacement pattern]:pattern" \
+        "-R,--no-nested-folders[no recursion]" \
+        "-I,--search-invisible-folders[search invisible folders]" \
+        "--all-file-types[search all file types]" \
+        "-C,--no-compressed-files[no searching compressed files]" \
+        "--name-pattern[search by name pattern]:pattern" \
+        "--gui[open results in BBEdit window]" \
+        "-c,--count[show count of matches]" \
+        "-Z,--null["null separating entries"]" \
+        "-E, --editor-commands[commands to BBEdit]" \
+        "-0["expect nulls not newlines]
+
+}

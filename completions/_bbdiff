@@ -1,0 +1,23 @@
+#compdef bbdiff
+
+_bbdiff() {
+    _arguments -S \
+        "--case-sensitive[case sensitive comparison]" \
+        "--compare-hidden-folders[compare hidden folders]" \
+        "--flatten-folders[consider folder hierarchies flat]" \
+        "--help[show help]" \
+        "--ignore-curly-quotes[all quotes are equal]" \
+        "--ignore-extra-spaces[ignore extra spaces]" \
+        "--ignore-leading-spaces[ignore leading spaces]" \
+        "--ignore-trailing-spaces[ignore trailing spaces]" \
+        "--ignore-spaces[ignore spaces]" \
+        "--resume[resume a previous app]" \
+        "--reverse[reverse the order of the file arguments]" \
+        "(-V --short-version)""{-V --shortversion}""[display the short version number]" \
+        "(-v --version)""{-v,--version}""[display the version number]" \
+        "--show-identical-files[show identical files]" \
+        "--skip-shielded-folders[skip shielded folders]" \
+        "--text-files-only[compare only text files]" \
+        "--wait[wait for the comparison to finish]" \
+        "*::filename:_files" 
+}
