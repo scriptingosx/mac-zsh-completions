@@ -8,7 +8,7 @@ function _quickpkg () {
     "--preinstall[preinstall script]::file:_files" \
     "--postinstall[postinstall script]::file:_files"  \
     "--install-location[install location]:folder:_files"  \
-    "--ownership[ownership]:::_values 'passed to pkgbuild' 'recommended' 'preserve' 'preserve-other'"  \
+    "--ownership[ownership]:value:_values 'passed to pkgbuild' 'recommended' 'preserve' 'preserve-other'"  \
     "--output[output folder]::folder:_files"  \
     "(--no-clean)--clean[remove temporary files (default)]"  \
     "(--clean)--no-clean[do not remove temporary files]"  \
