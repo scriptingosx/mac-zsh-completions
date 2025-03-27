@@ -1,0 +1,9 @@
+#compdef bbresults
+
+_bbresults() {
+    _arguments \
+        "-p, --pattern[determine parsing-see man page]:::_values 'parsing pattern' 'default' 'flake8' 'grep' 'gcc' 'perl' 'ruby'" \
+        "-n, --new-window[create new results window]" \
+        "-0[separator is null]" \"
+    }
+    

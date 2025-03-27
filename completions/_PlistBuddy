@@ -1,8 +1,10 @@
 #compdef PlistBuddy
 
 _PlistBuddy() {
+
+	local commands="'Help' 'Clear' 'Print' 'Set' 'Add' 'Copy' 'Delete' 'Merge' 'Save'"
 	_arguments \
-	    "-c[\"<command>\" execute command, otherwise run in interactive mode]" \
+	    "-c[\"<command>\" execute command, otherwise run in interactive mode]:value:_values 'command'   $commands"\
 		"-x[output will be in the form of an xml plist where appropriate]" \
 		"-h[print the complete help info, with command guide]" \
 		"*::filename:_files"

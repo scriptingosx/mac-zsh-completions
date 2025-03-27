@@ -1,0 +1,25 @@
+#compdef quickpkg
+
+function _quickpkg () {
+    _arguments  -S \
+    "--help[Show help]"  \
+    "--version[Show version]"  \
+    "--scripts[folder of scripts]::folder:_files"  \
+    "--preinstall[preinstall script]::file:_files" \
+    "--postinstall[postinstall script]::file:_files"  \
+    "--install-location[install location]:folder:_files"  \
+    "--ownership[ownership]:value:_values 'passed to pkgbuild' 'recommended' 'preserve' 'preserve-other'"  \
+    "--output[output folder]::folder:_files"  \
+    "(--no-clean)--clean[remove temporary files (default)]"  \
+    "(--clean)--no-clean[do not remove temporary files]"  \
+    "(--no-relocatable)--relocatable[sets BundleIsRelocatable to true]"  \
+    "(--relocatable)--no-relocatable[sets BundleIsRelocatable to false]"  \
+    "--sign[sign package with identity]"  \
+    "--keychain[use keychain]" \
+    "--cert[certificate name]" \
+    "(-v -vv -vvv)--verbosity[amount of logging]" \
+    "(--verbosity -vv -vvv)-v[small amount of logging]" \
+    "(--v --verbosity -vvv)-vv[medium amount of logging]" \
+    "(-vv -vv --verbosity)-vvv[chatty amount of logging]" \
+    "*::filename:_files"
+}

@@ -1,0 +1,11 @@
+#compdef dsenableroot
+
+function _dsenableroot () {
+    _arguments  -S \
+        "-d[Disable root user]"  \
+        "-u[username of admin user]:username:_users"  \
+        "-p[password of admin user]:password:"  \
+        "-r[password of root user]:password:"  \
+        "-h[Show help]"  \
+        "-v[Show version]"  \
+}

@@ -1,45 +1,46 @@
-- [x] desktoppr
-- [ ] xattr
+
+- [ ] app-sso
+- [ ] autopkg
+- [ ] createinstallmedia
+- [ ] diskutil
+- [ ] diskutil
 - [ ] dscl
 - [ ] dseditgroup
 - [ ] dsenableroot
-- [ ] launchctl
-- [x] jamf
+- [ ] dsimport
+- [ ] fdesetup
+- [ ] ioreg
+- [ ] log
 - [ ] pkgbuild
 - [ ] productbuild
-- [x] swift
-- [x] xed
+- [ ] profiles
+- [ ] shellcheck
+- [ ] sysadminctl
+- [ ] sysctl
+- [ ] tccutil
 - [ ] xcodebuild
 - [ ] xcrun (started)
-- [x] bbedit
-- [ ] bbdiff
-- [ ] bbresults
-- [ ] bbfind
-- [ ] shellcheck
-- [ ] dsenableroot
-- [ ] sysctl
-- [ ] ioreg
-- [ ] profiles
-- [x] plutil
 - [x] PlistBuddy
+- [x] bbdiff
+- [x] bbedit
+- [x] bbfind
+- [x] bbresults
+- [x] desktoppr
 - [x] installer
-- [ ] diskutil
-- [ ] dsimport
-- [ ] log
-- [ ] sysadminctl
-- [ ] autopkg
-- [ ] startosinstall
-- [ ] createinstallmedia
-- [ ] tccutil
-- [ ] tmutil
-- [ ] quickpkg
-- [ ] diskutil
-- [ ] fdesetup
+- [x] jamf
+- [x] plutil
+- [x] quickpkg
 - [x] see
-- [ ] app-sso
+- [x] startosinstall
+- [x] swift
+- [x] xed
 
+*available at https://github.com/nilsonholger/osx-zsh-completions*
 
-
+- launchctl
+- systemsetup
+- tmutil
+- xattr
 
 *zsh 5.3 (High Sierra/Mojave)*
 
