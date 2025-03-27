@@ -1,0 +1,30 @@
+#compdef startosinstall
+
+# <!-- startosinstall command & syntax
+# Command: startosinstall
+
+# Requires root access: Yes
+
+# Parameters:
+
+# - -usage: Displays all parameters available for the command.
+# - -agreetolicense: Agrees to the license agreement during deployment (Required for automated deployments).
+# - -rebootdelay: Delays reboot after preparation is complete, in seconds.
+# - -eraseinstall: Erases the existing APFS volume prior to installing macOS.
+# - -newvolumename: Renames the volume erased when used in conjunction with —eraseinstall.
+# - -converttoapfs: Coverts the existing filesystem to APFS. (Deprecated in macOS Mojave, however still exists in High Sierra).
+# - -nointeraction: Undocumented parameter that automates the deployment process without prompts.
+# - 
+# https://www.techrepublic.com/article/pro-tip-performing-a-clean-install-or-upgrade-of-macos-mojave-via-terminal/ -->
+
+_startosinstall() {
+    _arguments -S \
+        "--usage[Displays all parameters available for the command.]" \
+        "--agreetolicense[Agrees to the license agreement during deployment (Required for automated deployments).]" \
+        "--rebootdelay[Delays reboot after preparation is complete, in seconds.]:seconds" \
+        "--eraseinstall[Erases the existing APFS volume prior to installing macOS.]" \
+        "--newvolumename[Renames the volume erased when used in conjunction with —eraseinstall.]:volume name" \
+        "--converttoapfs[Coverts the existing filesystem to APFS. (Deprecated in macOS Mojave, however still exists in High Sierra).]" \
+        "--nointeraction[Undocumented parameter that automates the deployment process without prompts.]" \
+        "*::filename:_files"
+}

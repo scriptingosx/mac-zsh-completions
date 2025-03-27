@@ -15,7 +15,6 @@
 - [ ] productbuild
 - [ ] profiles
 - [ ] shellcheck
-- [ ] startosinstall
 - [ ] sysadminctl
 - [ ] sysctl
 - [ ] tccutil
@@ -32,6 +31,7 @@
 - [x] plutil
 - [x] quickpkg
 - [x] see
+- [x] startosinstall
 - [x] swift
 - [x] xed
 

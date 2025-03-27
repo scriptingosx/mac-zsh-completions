@@ -1,0 +1,30 @@
+#compdef shellcheck
+
+function _shellcheck () {
+    _arguments  -S \
+    "-a[Check sourced files, not just the specified ones]"  \
+    "--check-sourced[Check sourced files]"  \
+    "-C[enable colors in output]" :when:_values 'when' 'always' 'never' 'auto'" \
+    "--color=[enable colors in output]" :when:_values 'when' 'always' 'never' 'auto' '' \
+    "-i[only include these codes]"  \
+    "--include[only include these codes]"  \
+    "(-e --exclude)[exclude these codes]"  \
+    "--exclude[exclude these codes]"  \ 
+    "--extended-analysis=[enable extended analysis]" :boolean:_values 'analysis' 'true' 'false'" \
+    "(-f --format=)[format output]" ::_values 'format'  'tty' 'gcc' 'checkstyle' 'diff' 'json1' 'json' 'quiet'"  \
+    "--list-optional=[list optional checks]" \
+    "--norc=[do not use the user configuration file]" \
+    "--rcfile[use the specified configuration file]::file:_files" \
+    "(-o --enable=)[enable these optional checks]"  \
+    "(-P --source-path=)[add to source paths]::file:_files" \
+    "(-s --shell=)[specify the shell to use]::_values 'shell' 'sh' 'bash' 'dash' 'ksh' 'busybox'"  \
+    "(-S --severity=)[set the minimum severity level] ::_values 'severity'  'error' 'warning'   'info' 'style'"  \
+    "(-V --version)[show version information]"  \
+    "(-W --wiki-link-count=)[set the number of wiki links to show]::number"  \
+    "(-x --external-sources)[allow running external sources]"  \
+}
+
+
+
+
+
